@@ -38,6 +38,7 @@ class ThingsResource(object):
        	resp.stream = open('out.pdf', 'r')
        	resp.downloadable_as = 'out.pdf'        
        	resp.status = falcon.HTTP_200
+  
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
 
@@ -45,4 +46,4 @@ app = falcon.API()
 things = ThingsResource()
 
 # things will handle all requests to the '/things' URL path
-app.add_route('/things', things)
+app.add_route('/users', things)
