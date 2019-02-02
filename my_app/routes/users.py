@@ -23,7 +23,7 @@ class UsersResource(object):
         users = see_all()
         print(users)
         resp.status = falcon.HTTP_200  # This is the default status
-        resp.body = (users)
+        resp.body = (json.dumps(users))
     def on_post(self, req, resp,dr):
         posted_data = json.loads(req.stream.read())
        	for key in posted_data:
