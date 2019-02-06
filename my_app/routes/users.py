@@ -1,29 +1,23 @@
 import json
 import falcon
 
-from ..models.user import User
+from ..models import User
+from ..tables import UserTable
 from ..models import session
 
 
-def see_all():
-  final = {}
-  for name, fullname in session.query(User.name, User.fullname):
-    final[name] = fullname
-  return final
-
-  # def create_user(self, name, fullname,password) :
-  #   session.add(User(name=name,fullname=fullname,password=password))   
 
 class UsersResource(object):
-    # def __init__(self,session):
-    #   self.users_table = PostGresUsersTable(session=session)
+    def __init__(self,session):
+        self.users_table = UserTable(session=session)
       
     def on_get(self, req, resp):
         """Handles GET requests"""
-        users = see_all()
+        users = self.users_table.see_all()
         print(users)
-        resp.status = falcon.HTTP_200  # This is the default status
         resp.body = (json.dumps(users))
+        resp.status = falcon.HTTP_200  # This is the default status
+        
     def on_post(self, req, resp,dr):
         posted_data = json.loads(req.stream.read())
        	for key in posted_data:

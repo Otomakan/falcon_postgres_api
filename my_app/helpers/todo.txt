@@ -1,0 +1,3 @@
+Create a helper 
+- to deal with Error handling
+- load json

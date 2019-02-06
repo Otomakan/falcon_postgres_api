@@ -13,13 +13,6 @@ from .models import session,User
 from sqlalchemy.ext.declarative import declarative_base
 
 
-# bob = User(name='Garr', fullname='Gar Mob', password='edspassword')
-
-# session.add(bob)
-
-
-# session.commit()
-# falcon.API instances are callable WSGI apps
 app = falcon.API()
 
 # Resources are represented by long-lived class instances
