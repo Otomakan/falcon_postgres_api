@@ -6,9 +6,9 @@ import sys
 import falcon
 import json
 
+from .helpers import validate_fields
 
-
-from .routes.users import UsersResource
+from .routes.users import UsersRoute
 from .models import session,User
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -16,7 +16,8 @@ from sqlalchemy.ext.declarative import declarative_base
 app = falcon.API()
 
 # Resources are represented by long-lived class instances
-users = UsersResource()
-
+users = UsersRoute()
+ 
+validate_fields()
 # things will handle all requests to the '/things' URL path
 app.add_route('/users', users)

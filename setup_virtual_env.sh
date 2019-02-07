@@ -6,10 +6,10 @@ function virtual_env_setup {
     fi
 
     source ${VIRTUALENV_NAME}/bin/activate
-    pip install --upgrade pip
-    pip install --upgrade wheel
-    pip install -r requirements.txt
-    pip install -r requirements-dev.txt
+    # pip install --upgrade pip
+    # pip install --upgrade wheel
+    # pip install -r requirements.txt
+    # pip install -r requirements-dev.txt
     deactivate
     source ${VIRTUALENV_NAME}/bin/activate
     PYTHONPATH=$PYTHONPATH:. alembic upgrade head
