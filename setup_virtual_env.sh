@@ -10,6 +10,7 @@ function virtual_env_setup {
     # pip install --upgrade wheel
     # pip install -r requirements.txt
     # pip install -r requirements-dev.txt
+    # Create routes and models automatically
     deactivate
     source ${VIRTUALENV_NAME}/bin/activate
     PYTHONPATH=$PYTHONPATH:. alembic upgrade head

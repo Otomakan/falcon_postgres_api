@@ -6,8 +6,6 @@ from ..tables import UserTable
 from ..models import session
 
 
-
-
 class UsersRoute(object):
     def __init__(self):
       """Create an interface to interact with the User Table  """
