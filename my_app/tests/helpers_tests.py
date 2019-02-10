@@ -14,4 +14,7 @@ class ValidateFieldsTest(unittest.TestCase):
 				User
 
 				),True)
+
+if __name__ == "__main__":
+	unittest.main()
 		
