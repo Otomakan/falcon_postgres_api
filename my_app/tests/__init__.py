@@ -1,1 +1,1 @@
-from .helpers_tests import ValidateFieldsTest
+from tests.helpers_tests import ValidateFieldsTest
