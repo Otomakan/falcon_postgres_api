@@ -1,12 +1,17 @@
+import subprocess
+import os
+print(os.environ['HOME'])
+
+
+subprocess.run(["source", "./setup_virtual_env.sh"])
+
 function virtual_env_setup {
     VIRTUALENV_NAME=env
-
+    
     if [ ! -d ${VIRTUALENV_NAME} ]; then
       virtualenv env -p python3
     fi
-    echo "THE ENVIRONMENT IS"
-    echo "${VIRTUALENV_NAME}"
-    echo "END"
+
     source ${VIRTUALENV_NAME}/bin/activate
     # pip install --upgrade pip
     # pip install --upgrade wheel
@@ -19,3 +24,6 @@ function virtual_env_setup {
     echo "Running '$1' inside virtual environment…"
     $1
 }
+
+subprocess.run(["gunicorn", "my_app.router:app","--reload"])
+
