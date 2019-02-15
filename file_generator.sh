@@ -49,6 +49,3 @@ done
 #   # echo ${file##*/}
 #   ARRAY+=(${file##*/})
 # done
-
-echo "${ARRAY[*]}"
-
