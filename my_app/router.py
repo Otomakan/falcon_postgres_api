@@ -18,6 +18,5 @@ app = falcon.API()
 # Resources are represented by long-lived class instances
 users = UsersRoute()
  
-validate_fields()
 # things will handle all requests to the '/things' URL path
 app.add_route('/users', users)

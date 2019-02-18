@@ -1,1 +1,1 @@
-from .user_table.py import UserTable
+from .user_table import UserTable

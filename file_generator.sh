@@ -21,23 +21,41 @@ for file in ./my_app/tables/*; do
   	i=$((${#FNAME}-3))
   	TABLENAME="${FNAME:0:$i}"
   	# If problem with sed -r on Mac run ```brew install gnu-sed```
+  	# This converts to file name to a CamelCase (whcih should be the class name)
   	if [[ $OS = "Mac" ]]; then
   		CAMELCASED=`echo $TABLENAME | gsed -r 's/(^|_)([a-z])/\U\2/g'`
   	else
   		CAMELCASED=`echo $TABLENAME | sed -r 's/(^|_)([a-z])/\U\2/g'`
   	fi
-  	echo "from .$FNAME import $CAMELCASED" >> ./my_app/tables/__init__.py
+  	echo "from .$TABLENAME import $CAMELCASED" >> ./my_app/tables/__init__.py
   fi
 done
 
-# for file in ./my_app/models/*; do
-#   FNAME=${file##*/}
-#   if [ $FNAME = "__init__.py" ] || [ $FNAME = "__pycache__" ] || [ $FNAME = "base.py" ];then
-#   	echo "pass"
-#   else 
-#   	echo $FNAME
-#   fi
-# done
+> ./my_app/models/__init__.py
+
+HEAD=`echo "$(cat ./utilities/models_head.txt)"`
+for i in "$(cat ./utilities/models_head.txt)"; 
+do echo "$i"; done
+echo "$(cat ./utilities/models_head.txt)"
+for file in ./my_app/models/*; do
+  FNAME=${file##*/}
+	echo $HEAD >> ./my_app/models/__init__.py
+  if [ $FNAME = "__init__.py" ] || [ $FNAME = "__pycache__" ] || [ $FNAME = "base.py" ];then
+  	echo "CHEESE"
+  else 
+  	i=$((${#FNAME}-3))
+  	TABLENAME="${FNAME:0:$i}"
+  	# If problem with sed -r on Mac run ```brew install gnu-sed```
+  	# This converts to file name to a CamelCase (whcih should be the class name)
+  	if [[ $OS = "Mac" ]]; then
+  		CAMELCASED=`echo $TABLENAME | gsed -r 's/(^|_)([a-z])/\U\2/g'`
+  	else
+  		CAMELCASED=`echo $TABLENAME | sed -r 's/(^|_)([a-z])/\U\2/g'`
+  	fi
+  	echo "from .$TABLENAME import $CAMELCASED" >> ./my_app/models/__init__.py
+  fi
+
+done
 
 # for file in ./my_app/models/*; do
 #   # echo ${file##*/}
