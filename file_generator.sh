@@ -35,11 +35,11 @@ done
 
 HEAD=`echo "$(cat ./utilities/models_head.txt)"`
 for i in "$(cat ./utilities/models_head.txt)"; 
-do echo "$i"; done
-echo "$(cat ./utilities/models_head.txt)"
+do echo "$i">./my_app/models/__init__.py; done
+
+# echo "$(cat ./utilities/models_head.txt)"
 for file in ./my_app/models/*; do
   FNAME=${file##*/}
-	echo $HEAD >> ./my_app/models/__init__.py
   if [ $FNAME = "__init__.py" ] || [ $FNAME = "__pycache__" ] || [ $FNAME = "base.py" ];then
   	echo "CHEESE"
   else 

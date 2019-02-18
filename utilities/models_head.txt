@@ -23,5 +23,3 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 # Instantiating session
 session = Session()
-
-from .user import User

@@ -1,7 +1,30 @@
-# I decided to put all the session, base and model logic in the init folder to be more readily accessible # and more simple to use and call from sqlalchemy import create_engine from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import sessionmaker from dotenv import load_dotenv import os from pathlib import PurePath # Accessing the database url in the root .env path env_path = PurePath().parent / '.env' load_dotenv(dotenv_path=env_path) # Connecting to the database defined in /.env we use echo to have some logs engine = create_engine(os.getenv("DB_URL"),echo=True) Base = declarative_base() Base.metadata.create_all(engine) # Creating a session Class bound using the engine's database Session = sessionmaker(bind=engine) # Instantiating session session = Session() from .user import User
-# I decided to put all the session, base and model logic in the init folder to be more readily accessible # and more simple to use and call from sqlalchemy import create_engine from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import sessionmaker from dotenv import load_dotenv import os from pathlib import PurePath # Accessing the database url in the root .env path env_path = PurePath().parent / '.env' load_dotenv(dotenv_path=env_path) # Connecting to the database defined in /.env we use echo to have some logs engine = create_engine(os.getenv("DB_URL"),echo=True) Base = declarative_base() Base.metadata.create_all(engine) # Creating a session Class bound using the engine's database Session = sessionmaker(bind=engine) # Instantiating session session = Session() from .user import User
-# I decided to put all the session, base and model logic in the init folder to be more readily accessible # and more simple to use and call from sqlalchemy import create_engine from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import sessionmaker from dotenv import load_dotenv import os from pathlib import PurePath # Accessing the database url in the root .env path env_path = PurePath().parent / '.env' load_dotenv(dotenv_path=env_path) # Connecting to the database defined in /.env we use echo to have some logs engine = create_engine(os.getenv("DB_URL"),echo=True) Base = declarative_base() Base.metadata.create_all(engine) # Creating a session Class bound using the engine's database Session = sessionmaker(bind=engine) # Instantiating session session = Session() from .user import User
-# I decided to put all the session, base and model logic in the init folder to be more readily accessible # and more simple to use and call from sqlalchemy import create_engine from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import sessionmaker from dotenv import load_dotenv import os from pathlib import PurePath # Accessing the database url in the root .env path env_path = PurePath().parent / '.env' load_dotenv(dotenv_path=env_path) # Connecting to the database defined in /.env we use echo to have some logs engine = create_engine(os.getenv("DB_URL"),echo=True) Base = declarative_base() Base.metadata.create_all(engine) # Creating a session Class bound using the engine's database Session = sessionmaker(bind=engine) # Instantiating session session = Session() from .user import User
-from .my_table import MyTable
-# I decided to put all the session, base and model logic in the init folder to be more readily accessible # and more simple to use and call from sqlalchemy import create_engine from sqlalchemy.ext.declarative import declarative_base from sqlalchemy.orm import sessionmaker from dotenv import load_dotenv import os from pathlib import PurePath # Accessing the database url in the root .env path env_path = PurePath().parent / '.env' load_dotenv(dotenv_path=env_path) # Connecting to the database defined in /.env we use echo to have some logs engine = create_engine(os.getenv("DB_URL"),echo=True) Base = declarative_base() Base.metadata.create_all(engine) # Creating a session Class bound using the engine's database Session = sessionmaker(bind=engine) # Instantiating session session = Session() from .user import User
+# I decided to put all the session, base and model logic in the init folder to be more readily accessible
+# and more simple to use and call
+
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
+from pathlib import PurePath
+
+
+# Accessing the database url in the root .env path
+env_path = PurePath().parent / '.env'
+load_dotenv(dotenv_path=env_path)
+
+# Connecting to the database defined in /.env we use echo to have some logs
+engine = create_engine(os.getenv("DB_URL"),echo=True)
+
+Base = declarative_base()
+
+Base.metadata.create_all(engine)
+# Creating a session Class bound using the engine's database
+Session = sessionmaker(bind=engine)
+# Instantiating session
+session = Session()
+
+from .user import User
+from .burger import Burger
+from .gorgonzola import Gorgonzola
 from .user import User
