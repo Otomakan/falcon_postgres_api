@@ -6,13 +6,14 @@ if sys.argv[1]=="help":
 	print("To use this module simply enter the name of the type you are trying to generate."
 					"accepted types are: model, middleware, models, route, table, helper")
 
-# sys.argv.shift()
-
 def switch(type, arguments):
-	return {
-		'model':create_model(arguments),
-		'table':create_table(arguments[0])
-	}[type]
+	if type=="model" :
+		create_model(arguments),
+	elif type=="table" :
+		create_table(arguments[0])
+	else:
+		raise Exception("%s is not a valid argument please enter model or table" %(type))
+
 
 def call_model(arg):
 	print('Your arg is a model we think')
@@ -20,11 +21,13 @@ def call_model(arg):
 	print(arg)
 
 def generate():
-	switch(argv[1], argv[2:len(argv)])
-# for arg in sys.argv:
-# 	print (arg)
+	''' 
+		Reads the arguments in the command line and calls the function of the first argument
+		The first argument should be one of : model, table
 
-# if __name__ =='__main__':
-# 	generate()
-# 	create_model()
-generate()
+	 '''
+	switch(argv[1], argv[2:len(argv)])
+
+
+if __name__ =='__main__':
+	generate()
