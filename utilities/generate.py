@@ -1,6 +1,7 @@
 import sys, os
 from create_model import create_model
 from create_table import create_table
+from create_route import create_route
 argv = sys.argv
 if sys.argv[1]=="help":
 	print("To use this module simply enter the name of the type you are trying to generate."
@@ -11,6 +12,8 @@ def switch(type, arguments):
 		create_model(arguments),
 	elif type=="table" :
 		create_table(arguments[0])
+	elif type=="route" :
+		create_route(arguments[0])
 	else:
 		raise Exception("%s is not a valid argument please enter model or table" %(type))
 
