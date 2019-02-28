@@ -1,3 +1,3 @@
 Create tests
 Create helpers
-
+Have a way for user to customize their __init__.py file without erasing everything. Maybe give the option to create a feed_init file which is appended to the init file
