@@ -1,5 +1,4 @@
-import json
-import falcon
+import json, falcon
 
 from ..models import User
 from ..tables import UserTable

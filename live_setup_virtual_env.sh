@@ -17,4 +17,3 @@ function virtual_env_setup {
     echo "Running '$1' inside virtual environment…"
     $1
 }
-ubu

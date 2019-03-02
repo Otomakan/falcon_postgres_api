@@ -38,7 +38,7 @@ done
 write_file ./my_app/tables/
 
 # Writing the head of the models __init__ to create a Sql Base
-for i in "$(cat ./utilities/models_head.txt)"; 
+for i in "$(cat ./utilities/head/models_head.txt)"; 
 do echo "$i">./my_app/models/__init__.py; done
 
 write_file ./my_app/models/
