@@ -3,4 +3,10 @@ Create helpers
 Have a way for user to customize their __init__.py file without erasing everything. Maybe give the option to create a feed_init file which is appended to the init file
 Create a new script to generate default routes||tables||models||middlewares
 Create a script which can read the imports and add those the the setup_virtual env script
-Create some default classes which can be extended eg: middleware class to whcih you can add the routes you want or ones you don't want
+Create some default classes which can be extended eg: - middleware class to whcih you can add the routes you want or ones you don't want
+- Table class which will automatically commit
+Test the setup
+
+
+create script so you can have :
+script generate new table/model name 

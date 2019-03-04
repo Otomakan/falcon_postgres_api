@@ -1,6 +1,6 @@
 import sys, os
 from create_model import create_model
-
+from create_table import create_table
 argv = sys.argv
 if sys.argv[1]=="help":
 	print("To use this module simply enter the name of the type you are trying to generate."
@@ -11,7 +11,7 @@ if sys.argv[1]=="help":
 def switch(type, arguments):
 	return {
 		'model':create_model(arguments),
-		'b':2
+		'table':create_table(arguments)
 	}[type]
 
 def call_model(arg):
