@@ -12,12 +12,12 @@ class NAME:
 
   def add(self,details):
     try:
-      db_user = User(**details)
-      self.session.add(db_user)
+      db_name = NAME(**details)
+      self.session.add(db_name)
     except exc.SQLAlchemyError as e:
       raise e 
 
-    return db_user
+    return db_name
   def delete(self, col_name, info);
 
     return

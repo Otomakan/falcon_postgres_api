@@ -1,23 +1,24 @@
-import os
-import re, sys
-import formatter
 
 import os
-import re, sys, formatter
+import re, sys, formatter,pathlib
 from formatter import snake_caselize, first_upper_camel_caselize, reverse_match
 
-def check_args(args):
+def check_table_name(table_name):
 	print('checking arguments')
-	print(args)
+	print(table_name)
 	# Raise error if the arguments aren't quite right
 	# args[0] == tablename
 
 
-def create_table(args):
+def create_table(table_name):
+	'''
+	Creates a table file with table_name
+	'''
 
-	check_args(args)
 
-	table_name = first_upper_camel_caselize(args[0])
+	check_table_name(table_name)
+
+
 	valid_table_name = formatter.reverse_match(r'[^a-zA-Z]', table_name)
 	if  valid_table_name:
 		raise Exception("The model name can only contain lower case and uppercase letters ")
@@ -26,11 +27,11 @@ def create_table(args):
 	# print(model_name[0]+model_name.split()[1:len(model_name)].join())
 	# filename = lc_model_name+'.py'
 	# with open(filename,'w') as f:
-	f = open('./models/default.py')
+	f = open(os.path.dirname(os.path.realpath(__file__)) +'/tables/boiler_table.py')
 	for x in f:
-		x.replace('NAME', table_name)
-		x.replace('name', table_name.lower())
-		# print(x)
+		x = x.replace('NAME', table_name)
+		x =  x.replace('name', table_name.lower())
+		print(x)
 	# print('from ..models.%s import %s\n'
 	# 	'from sqlalchemy import exc' % (table_name.lower(), table_name))
 	

@@ -11,7 +11,7 @@ if sys.argv[1]=="help":
 def switch(type, arguments):
 	return {
 		'model':create_model(arguments),
-		'table':create_table(arguments)
+		'table':create_table(arguments[0])
 	}[type]
 
 def call_model(arg):
