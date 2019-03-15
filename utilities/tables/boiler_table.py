@@ -18,7 +18,7 @@ class NAME:
       raise e 
 
     return db_name
-  def delete(self, col_name, info);
+  def delete(self, col_name, info):
 
     return
   def update(self, col_name, info):
