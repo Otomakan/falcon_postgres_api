@@ -25,7 +25,7 @@ def create_model(args):
 
 	print('from . import Base\nfrom sqlalchemy import Column, Integer, String,relationship\n\n')
 
-	print("class %s(object):\n\t\"\"\" %s Object Model\"\"\"\n\tdef __init__(self, arg):\n\t\tsuper(%s, self).__init__()\n\t\tself.arg = arg\n" % (model_name,model_name,model_name))
+	print("class %s(Base):\n\t\"\"\" %s Object Model\"\"\"\n\tdef __init__(self, arg):\n\t\tsuper(%s, self).__init__()\n\t\tself.arg = arg\n" % (model_name,model_name,model_name))
 	print("\tid = Column(Integer, primary_key=True)\n")
 
 	rows =  list(map(lambda x: {"name": snake_caselize(x.partition(":")[0]), "type": x.partition(':')[2].capitalize()},
